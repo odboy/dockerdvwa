@@ -1,12 +1,12 @@
 FROM php:7.2-apache
 
-COPY ../config/sources.list /etc/apt/sources.list
+COPY sources.list /etc/apt/sources.list
 
 RUN apt-get -y update --fix-missing
 RUN apt-get upgrade -y
 
 # Install useful tools
-RUN apt-get -y install apt-utils nano wget dialog
+RUN apt-get -y install apt-utils vim nano wget dialog
 
 # Install important libraries
 RUN apt-get -y install --fix-missing apt-utils build-essential git curl libcurl3 libcurl3-dev zip openssl
@@ -49,3 +49,5 @@ RUN docker-php-ext-install -j$(nproc) gd
 
 # Enable apache modules
 RUN a2enmod rewrite headers
+
+RUN rm -rf /var/lib/apt/lists/*
