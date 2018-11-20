@@ -3,8 +3,7 @@ FROM php:7.2-apache
 COPY sources.list /etc/apt/sources.list
 
 RUN apt-get -y update --fix-missing \
-    && apt-get -y install apt-utils vim nano wget dialog \
-    && build-essential git curl libcurl3 libcurl3-dev zip openssl
+    && apt-get -y install apt-utils vim nano wget dialog build-essential git curl libcurl3 libcurl3-dev zip openssl
 
 # Install Composer & Xdebug
 RUN curl -fsS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer \
