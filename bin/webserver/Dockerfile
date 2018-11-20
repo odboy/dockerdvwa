@@ -17,7 +17,7 @@ RUN apt-get -y install libsqlite3-dev libsqlite3-0 mysql-client libfreetype6-dev
     && docker-php-ext-install pdo_sqlite \
     && docker-php-ext-install mysqli \
     && docker-php-ext-install curl \
-    && ocker-php-ext-install tokenizer \
+    && docker-php-ext-install tokenizer \
     && docker-php-ext-install json \
     && apt-get -y install zlib1g-dev \
     && docker-php-ext-install zip \
