@@ -7,6 +7,25 @@ if( isset( $_REQUEST[ 'Submit' ] ) ) {
 	// Check database
 	$query  = "SELECT first_name, last_name FROM users WHERE user_id = '$id';";
 	$result = mysqli_query($GLOBALS["___mysqli_ston"],  $query ) or die( '<pre>' . ((is_object($GLOBALS["___mysqli_ston"])) ? mysqli_error($GLOBALS["___mysqli_ston"]) : (($___mysqli_res = mysqli_connect_error()) ? $___mysqli_res : false)) . '</pre>' );
+	// 拆解如下：
+// 	$result = mysqli_query($GLOBALS["___mysqli_ston"],  $query );
+// 	if (!$result){
+// 	    $msg = "";
+// 	    if (is_object($GLOBALS["___mysqli_ston"])){
+// 	        $msg = mysqli_error($GLOBALS["___mysqli_ston"]);
+// 	        // var_dump($msg);
+//        }
+//        else{
+//            $___mysqli_res = mysqli_connect_error();
+//            if ($___mysqli_res){
+//                $msg = $___mysqli_res;
+//            }
+//            else{
+//                $msg = false;
+//            }
+//        }
+//        die("<pre>".$msg."</pre>");
+//    }
 
 	// Get results
 	while( $row = mysqli_fetch_assoc( $result ) ) {
